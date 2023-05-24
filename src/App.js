@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles.css"
+import React from "react";
+import Children from  "./Children"
+
+
+const themes ={
+  light:{
+    fontColor: '#000',
+    background:'#fff'
+  },
+  dark:{
+    fontColor: '#fff',
+    background:'#000'
+  }
+
+
+};
+
+export const  ThemeContext = React.createContext(themes);
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeContext.Provider value={themes}>
+      <Children />
+    </ThemeContext.Provider>
   );
 }
 
